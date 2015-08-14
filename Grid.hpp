@@ -19,12 +19,19 @@ namespace dungeon
         int width, height;
         
     public:
-        Grid(int w, int h)
-        : width(w), height(h)
+        /**
+         * @brief Grid class
+         * @param[in] divW a division of width for a floor
+         * @param[in] divH a division of height for a floor
+         * @param[in] areaW an area of width on a division
+         * @param[in] areaH an area of height on a division
+         */
+        Grid(int divW, int divH, int areaW, int areaH)
+        : width(divW * areaW), height(divH * areaH)
         {
-            grid.resize(h);
+            grid.resize(height);
             for (const auto& g : grid)
-                g.resize(w);
+                g.resize(width);
         }
         
         int Width() const { return width; }
