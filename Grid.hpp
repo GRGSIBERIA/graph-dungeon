@@ -23,10 +23,10 @@ namespace dungeon
     public:
         /**
          * @brief Grid class
-         * @param[in] divW a division of width for a floor
-         * @param[in] divH a division of height for a floor
-         * @param[in] areaW an area of width on a division
-         * @param[in] areaH an area of height on a division
+         * @param[in] divW number of a division on a floor
+         * @param[in] divH number of a division on a floor
+         * @param[in] areaW width on an area
+         * @param[in] areaH height on an area
          */
         Grid(int divW, int divH, int areaW, int areaH)
         :
