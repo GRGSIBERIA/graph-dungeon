@@ -9,10 +9,16 @@
 #ifndef DungeonMaker_Graph_hpp
 #define DungeonMaker_Graph_hpp
 
+#include "Rect.hpp"
+
 namespace dungeon
 {
     class Graph
     {
+        Rect rect;
+        Graph lhs;
+        Graph rhs;
+        
     public:
     };
 }

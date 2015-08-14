@@ -17,6 +17,8 @@ namespace dungeon
     {
         std::vector<std::vector<int>> grid;
         int width, height;
+        int divW, divH;
+        int areaW, areaH;
         
     public:
         /**
@@ -27,7 +29,10 @@ namespace dungeon
          * @param[in] areaH an area of height on a division
          */
         Grid(int divW, int divH, int areaW, int areaH)
-        : width(divW * areaW), height(divH * areaH)
+        :
+        width(divW * areaW), height(divH * areaH),
+        divW(divW), divH(divH),
+        areaW(areaW), areaH(areaH)
         {
             grid.resize(height);
             for (const auto& g : grid)
@@ -36,6 +41,10 @@ namespace dungeon
         
         int Width() const { return width; }
         int Height() const { return height; }
+        int DivisionWidth() const { return divW; }
+        int DivisionHeight() const { return divH; }
+        int AreaWidth() const { return areaW; }
+        int AreaHeight() const { return areaH; }
         
         std::vector<int>& operator[](int height) { return grid[height]; }
     };
