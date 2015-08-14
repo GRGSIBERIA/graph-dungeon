@@ -9,17 +9,28 @@
 #ifndef DungeonMaker_Graph_hpp
 #define DungeonMaker_Graph_hpp
 
-#include "Rect.hpp"
+#include <memory>
+#include "Grid.hpp"
 
 namespace dungeon
 {
+    class Graph;
+    typedef std::shared_ptr<Graph> GraphPtr;
+    
     class Graph
     {
         Rect rect;
-        Graph lhs;
-        Graph rhs;
+        GraphPtr lhs;
+        GraphPtr rhs;
         
     public:
+        Graph(Grid& grid, int initDivX, int initDivY)
+        : rect(initDivX * grid.AreaWidth(),
+               initDivY * grid.AreaHeight(),
+               grid.AreaWidth(), grid.AreaHeight())
+        {
+            
+        }
     };
 }
 
