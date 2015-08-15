@@ -11,6 +11,7 @@
 
 #include <vector>
 #include <memory>
+#include "Point.hpp"
 
 namespace dungeon
 {
@@ -37,8 +38,8 @@ namespace dungeon
         : numWidth(numWidth), numHeight(numHeight)
         {
             section.resize(numHeight);
-            for (const auto& s : section)
-                s.resize(numWidth, 0);
+            for (int i = 0; i < numHeight; ++i)
+                section[i].resize(numWidth, 0);
         }
         
         std::vector<int>& operator[](int h) { return section[h]; }
@@ -48,31 +49,31 @@ namespace dungeon
         
         int CheckPoint(const Point& pt)
         {
-            int x, y, flags;
+            int x, y, flags = 0;
             
             y = pt.y;
             
             // left
             x = pt.x - 1;
             if (x >= 0 && x < numWidth && section[y][x] == 0)
-                flags |= Direction::Left;
+                flags |= (int)Direction::Left;
             
             // right
             x = pt.x + 1;
             if (x >= 0 && x < numWidth && section[y][x] == 0)
-                flags |= Direction::Right;
+                flags |= (int)Direction::Right;
             
             x = pt.x;
             
             // up
             y = pt.y - 1;
             if (y >= 0 && y < numHeight && section[y][x] == 0)
-                flags |= Direction::Up;
+                flags |= (int)Direction::Up;
             
             // down
             y = pt.y + 1;
             if (y >= 0 && y < numHeight && section[y][x] == 0)
-                flags |= Direction::Down;
+                flags |= (int)Direction::Down;
             
             return flags;
         }
