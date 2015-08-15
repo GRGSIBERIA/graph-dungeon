@@ -10,9 +10,13 @@
 #define DungeonMaker_Section_hpp
 
 #include <vector>
+#include <memory>
 
 namespace dungeon
 {
+    class Section;
+    typedef std::shared_ptr<Section> SectionPtr;
+    
     class Section
     {
         std::vector<std::vector<int>> section;
