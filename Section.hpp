@@ -30,6 +30,9 @@ namespace dungeon
         }
         
         std::vector<int>& operator[](int h) { return section[h]; }
+        
+        int Width() const { return numWidth; }
+        int Height() const { return numHeight; }
     };
 }
 

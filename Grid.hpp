@@ -10,6 +10,7 @@
 #define DungeonMaker_Grid_hpp
 
 #include <vector>
+#include "Section.hpp"
 
 namespace dungeon
 {
@@ -18,7 +19,6 @@ namespace dungeon
         std::vector<std::vector<int>> grid;
         
         int width, height;
-        int divW, divH;
         int areaW, areaH;
         
     public:
@@ -29,10 +29,9 @@ namespace dungeon
          * @param[in] areaW width on an area
          * @param[in] areaH height on an area
          */
-        Grid(int divW, int divH, int areaW, int areaH)
+        Grid(const Section& section, int areaW, int areaH)
         :
-        width(divW * areaW), height(divH * areaH),
-        divW(divW), divH(divH),
+        width(section.Width() * areaW), height(section.Height() * areaH),
         areaW(areaW), areaH(areaH)
         {
             grid.resize(height);
@@ -42,8 +41,6 @@ namespace dungeon
         
         int Width() const { return width; }
         int Height() const { return height; }
-        int DivisionWidth() const { return divW; }
-        int DivisionHeight() const { return divH; }
         int AreaWidth() const { return areaW; }
         int AreaHeight() const { return areaH; }
         
