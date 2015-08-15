@@ -47,7 +47,7 @@ int dungeon::Section::DecideDirection(int directionFlag, std::random_device& rd)
         if (directionFlag & 1 << i) cnt++;
     
     int decide = std::uniform_int_distribution<int>(1, cnt)(rd);
-    
+        
     int retval = 0;
     int c = 0;
     for (int i = 0; i < 4; ++i)
