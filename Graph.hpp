@@ -10,7 +10,7 @@
 #define DungeonMaker_Graph_hpp
 
 #include <memory>
-#include "Grid.hpp"
+#include "Section.hpp"
 
 namespace dungeon
 {
@@ -19,15 +19,11 @@ namespace dungeon
     
     class Graph
     {
-        Rect rect;
         GraphPtr lhs;
         GraphPtr rhs;
         
     public:
-        Graph(Grid& grid, int initDivX, int initDivY)
-        : rect(initDivX * grid.AreaWidth(),
-               initDivY * grid.AreaHeight(),
-               grid.AreaWidth(), grid.AreaHeight()),
+        Graph(Section& section)
         lhs(nullptr), rhs(nullptr)
         {
             
