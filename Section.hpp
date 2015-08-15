@@ -33,6 +33,9 @@ namespace dungeon
         int numWidth;
         int numHeight;
         
+        int CheckPoint(const Point& pt);
+        int DecideDirection(int directionFlag, std::random_device& rd);
+        
     public:
         
         Section(int numWidth, int numHeight)
@@ -48,9 +51,7 @@ namespace dungeon
         int Width() const { return numWidth; }
         int Height() const { return numHeight; }
         
-        int CheckPoint(const Point& pt);
-        
-        int DecideDirection(int directionFlag, std::random_device& rd);
+        int ConnectTo(const Point& pt, std::random_device& rd);
     };
 }
 

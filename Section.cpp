@@ -40,7 +40,6 @@ int dungeon::Section::CheckPoint(const Point& pt)
     return flags;
 }
 
-#include <iostream>
 int dungeon::Section::DecideDirection(int directionFlag, std::random_device& rd)
 {
     int cnt = 0;
@@ -63,4 +62,10 @@ int dungeon::Section::DecideDirection(int directionFlag, std::random_device& rd)
     }
     
     return retval;
+}
+
+int dungeon::Section::ConnectTo(const Point& pt, std::random_device& rd)
+{
+    int num = CheckPoint(pt);
+    return DecideDirection(num, rd);
 }
