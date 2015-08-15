@@ -7,8 +7,13 @@
 //
 
 #include <iostream>
+#include "Section.hpp"
 
 void main()
 {
-    printf("hello");
+    dungeon::Section section(40, 30);
+    
+    int a = section.CheckPoint(dungeon::Point(0, 0));
+    
+    printf("%d", a);
 }
