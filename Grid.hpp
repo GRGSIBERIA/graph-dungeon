@@ -22,13 +22,6 @@ namespace dungeon
         int areaW, areaH;
         
     public:
-        /**
-         * @brief Grid class
-         * @param[in] divW number of a division on a floor
-         * @param[in] divH number of a division on a floor
-         * @param[in] areaW width on an area
-         * @param[in] areaH height on an area
-         */
         Grid(const Section& section, int areaW, int areaH)
         :
         width(section.Width() * areaW), height(section.Height() * areaH),
