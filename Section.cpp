@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 Eiichi Takebuchi. All rights reserved.
 //
 
+#include <random>
 #include "Section.hpp"
 
 int dungeon::Section::CheckPoint(const Point& pt)
@@ -37,4 +38,29 @@ int dungeon::Section::CheckPoint(const Point& pt)
         flags |= (int)Direction::Down;
     
     return flags;
+}
+
+#include <iostream>
+int dungeon::Section::DecideDirection(int directionFlag, std::random_device& rd)
+{
+    int cnt = 0;
+    for (int i = 0; i < 4; ++i)
+        if (directionFlag & 1 << i) cnt++;
+    
+    int decide = std::uniform_int_distribution<int>(1, cnt)(rd);
+    
+    int retval = 0;
+    int c = 0;
+    for (int i = 0; i < 4; ++i)
+    {
+        if (directionFlag & 1 << i) ++c;
+        
+        if (c == decide)
+        {
+            retval = 1 << i;
+            break;
+        }
+    }
+    
+    return retval;
 }

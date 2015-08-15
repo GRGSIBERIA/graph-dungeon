@@ -11,6 +11,7 @@
 
 #include <vector>
 #include <memory>
+#include <random>
 #include "Point.hpp"
 
 namespace dungeon
@@ -49,12 +50,7 @@ namespace dungeon
         
         int CheckPoint(const Point& pt);
         
-        int DecideDirection(int directionFlag)
-        {
-            
-            
-            return 0;
-        }
+        int DecideDirection(int directionFlag, std::random_device& rd);
     };
 }
 
