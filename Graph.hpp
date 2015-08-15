@@ -19,6 +19,7 @@ namespace dungeon
     
     class Graph
     {
+        Point point;
         GraphPtr lhs;
         GraphPtr rhs;
         

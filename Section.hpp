@@ -14,6 +14,14 @@
 
 namespace dungeon
 {
+    enum class Direction
+    {
+        Left = 0x01,
+        Right = 0x02,
+        Up = 0x04,
+        Down = 0x08
+    };
+    
     class Section;
     typedef std::shared_ptr<Section> SectionPtr;
     
@@ -37,6 +45,37 @@ namespace dungeon
         
         int Width() const { return numWidth; }
         int Height() const { return numHeight; }
+        
+        int CheckPoint(const Point& pt)
+        {
+            int x, y, flags;
+            
+            y = pt.y;
+            
+            // left
+            x = pt.x - 1;
+            if (x >= 0 && x < numWidth && section[y][x] == 0)
+                flags |= Direction::Left;
+            
+            // right
+            x = pt.x + 1;
+            if (x >= 0 && x < numWidth && section[y][x] == 0)
+                flags |= Direction::Right;
+            
+            x = pt.x;
+            
+            // up
+            y = pt.y - 1;
+            if (y >= 0 && y < numHeight && section[y][x] == 0)
+                flags |= Direction::Up;
+            
+            // down
+            y = pt.y + 1;
+            if (y >= 0 && y < numHeight && section[y][x] == 0)
+                flags |= Direction::Down;
+            
+            return flags;
+        }
     };
 }
 
