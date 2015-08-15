@@ -16,6 +16,7 @@ namespace dungeon
     class Grid
     {
         std::vector<std::vector<int>> grid;
+        
         int width, height;
         int divW, divH;
         int areaW, areaH;
@@ -36,7 +37,7 @@ namespace dungeon
         {
             grid.resize(height);
             for (const auto& g : grid)
-                g.resize(width);
+                g.resize(width, 0);
         }
         
         int Width() const { return width; }

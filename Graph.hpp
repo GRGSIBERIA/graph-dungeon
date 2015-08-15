@@ -27,7 +27,8 @@ namespace dungeon
         Graph(Grid& grid, int initDivX, int initDivY)
         : rect(initDivX * grid.AreaWidth(),
                initDivY * grid.AreaHeight(),
-               grid.AreaWidth(), grid.AreaHeight())
+               grid.AreaWidth(), grid.AreaHeight()),
+        lhs(nullptr), rhs(nullptr)
         {
             
         }
