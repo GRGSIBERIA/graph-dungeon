@@ -51,7 +51,7 @@ namespace dungeon
         int Width() const { return numWidth; }
         int Height() const { return numHeight; }
         
-        int ConnectTo(const Point& pt, std::random_device& rd);
+        Point ConnectTo(const Point& pt, std::random_device& rd);
     };
 }
 
