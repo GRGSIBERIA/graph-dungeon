@@ -6,7 +6,6 @@
 //  Copyright (c) 2015年 Eiichi Takebuchi. All rights reserved.
 //
 
-#include <random>
 #include "Section.hpp"
 
 int dungeon::Section::CheckPoint(const Point& pt)
